@@ -34,7 +34,7 @@ updates:
 
 
   - package-ecosystem: "maven"
-    directory: /tailormap-data/geoserver/maven
+    directory: /geoserver/maven
     schedule:
       interval: "weekly"
       day: monday
