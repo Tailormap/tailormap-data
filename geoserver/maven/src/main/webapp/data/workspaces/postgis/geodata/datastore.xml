@@ -1,0 +1,43 @@
+<dataStore>
+  <id>DataStoreInfoImpl--49761c3d:17f40de38c8:-7ff6</id>
+  <name>geodata</name>
+  <description>geodata database in postgis</description>
+  <type>PostGIS</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--49761c3d:17f40de38c8:-7ffa</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="schema">public</entry>
+    <entry key="Evictor run periodicity">300</entry>
+    <entry key="Max open prepared statements">50</entry>
+    <entry key="encode functions">true</entry>
+    <entry key="Batch insert size">1</entry>
+    <entry key="preparedStatements">false</entry>
+    <entry key="database">geodata</entry>
+    <entry key="host">postgis</entry>
+    <entry key="Loose bbox">true</entry>
+    <entry key="SSL mode">DISABLE</entry>
+    <entry key="Estimated extends">true</entry>
+    <entry key="fetch size">1000</entry>
+    <entry key="Expose primary keys">false</entry>
+    <entry key="validate connections">true</entry>
+    <entry key="Support on the fly geometry simplification">true</entry>
+    <entry key="Connection timeout">20</entry>
+    <entry key="create database">false</entry>
+    <entry key="Method used to simplify geometries">FAST</entry>
+    <entry key="port">5432</entry>
+    <entry key="passwd">plain:07d8313e-75b1-45</entry>
+    <entry key="min connections">1</entry>
+    <entry key="dbtype">postgis</entry>
+    <entry key="namespace">http://tailormap.nl/geodata/postgis/</entry>
+    <entry key="max connections">10</entry>
+    <entry key="Evictor tests per run">3</entry>
+    <entry key="Test while idle">true</entry>
+    <entry key="user">geodata</entry>
+    <entry key="Max connection idle time">300</entry>
+  </connectionParameters>
+  <__default>false</__default>
+  <dateCreated>2022-02-28 15:09:50.328 UTC</dateCreated>
+  <dateModified>2022-03-02 09:57:13.157 UTC</dateModified>
+</dataStore>

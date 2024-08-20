@@ -1,0 +1,37 @@
+name: "Cleanup and Maintainance"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "19 23 * * 1"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    name: 'Close Stale PRs'
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 60
+          days-before-close: 10
+          delete-branch: true
+
+
+  workflows:
+    runs-on: ubuntu-latest
+    name: 'Cleanup old workflow runs'
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 90
+          keep_minimum_runs: 2

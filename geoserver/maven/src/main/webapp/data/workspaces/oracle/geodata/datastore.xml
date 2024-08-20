@@ -1,0 +1,38 @@
+<dataStore>
+  <id>DataStoreInfoImpl--49761c3d:17f40de38c8:-7ff5</id>
+  <name>geodata</name>
+  <description>geodata schema in FREEPDB1 database</description>
+  <type>Oracle NG</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--49761c3d:17f40de38c8:-7ff8</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="schema">GEODATA</entry>
+    <entry key="Evictor run periodicity">300</entry>
+    <entry key="Estimated extends">true</entry>
+    <entry key="Max open prepared statements">50</entry>
+    <entry key="fetch size">1000</entry>
+    <entry key="Expose primary keys">false</entry>
+    <entry key="validate connections">true</entry>
+    <entry key="Connection timeout">20</entry>
+    <entry key="Batch insert size">1</entry>
+    <entry key="Metadata bbox">false</entry>
+    <entry key="database">/FREEPDB1</entry>
+    <entry key="port">1521</entry>
+    <entry key="passwd">plain:07d8313e-75b1-45</entry>
+    <entry key="min connections">1</entry>
+    <entry key="host">oracle</entry>
+    <entry key="Loose bbox">true</entry>
+    <entry key="dbtype">oracle</entry>
+    <entry key="namespace">http://tailormap.nl/geodata/oracle/</entry>
+    <entry key="max connections">10</entry>
+    <entry key="Evictor tests per run">3</entry>
+    <entry key="Test while idle">true</entry>
+    <entry key="user">geodata</entry>
+    <entry key="Max connection idle time">300</entry>
+  </connectionParameters>
+  <__default>false</__default>
+  <dateCreated>2022-02-28 15:15:15.464 UTC</dateCreated>
+  <dateModified>2022-03-02 09:56:55.547 UTC</dateModified>
+</dataStore>

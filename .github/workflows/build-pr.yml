@@ -1,0 +1,32 @@
+name: 'Build Pull Request'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ ( github.ref == 'refs/heads/main' ) && format('ci-main-{0}', github.sha) || format('ci-main-{0}', github.ref) }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: 'Build tailormap-data images'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: 'Build'
+        run: docker compose -f ./docker-compose.yml build --pull --parallel --compress --no-cache
+
+      - name: 'Start tailormap-data database images'
+        run: |
+          docker compose -f ./tailormap-data/docker-compose.yml -f ./tailormap-data/no-traefik.yml up -d postgis oracle sqlserver --wait
+          printf "\nPostGIS logs:\n"
+          docker logs postgis
+          printf "\nOracle logs:\n"
+          docker logs oracle
+          printf "\nSQL Server logs:\n"
+          docker logs sqlserver
+        
+

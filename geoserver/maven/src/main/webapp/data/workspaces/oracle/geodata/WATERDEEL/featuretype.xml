@@ -1,0 +1,68 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--3dc80d05:17f462598a5:-7ff7</id>
+  <name>WATERDEEL</name>
+  <nativeName>WATERDEEL</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--49761c3d:17f40de38c8:-7ff7</id>
+  </namespace>
+  <title>WATERDEEL</title>
+  <keywords>
+    <string>features</string>
+    <string>WATERDEEL</string>
+  </keywords>
+  <nativeCRS class="projected">PROJCS[&quot;Amersfoort / RD New&quot;, 
+  GEOGCS[&quot;Amersfoort&quot;, 
+    DATUM[&quot;Amersfoort&quot;, 
+      SPHEROID[&quot;Bessel 1841&quot;, 6377397.155, 299.1528128, AUTHORITY[&quot;EPSG&quot;,&quot;7004&quot;]], 
+      TOWGS84[565.2369, 50.0087, 465.658, -0.40685733032239757, -0.3507326765425626, 1.8703473836067956, 4.0812], 
+      AUTHORITY[&quot;EPSG&quot;,&quot;6289&quot;]], 
+    PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+    UNIT[&quot;degree&quot;, 0.017453292519943295], 
+    AXIS[&quot;Geodetic longitude&quot;, EAST], 
+    AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;4289&quot;]], 
+  PROJECTION[&quot;Oblique_Stereographic&quot;, AUTHORITY[&quot;EPSG&quot;,&quot;9809&quot;]], 
+  PARAMETER[&quot;central_meridian&quot;, 5.387638888888891], 
+  PARAMETER[&quot;latitude_of_origin&quot;, 52.15616055555556], 
+  PARAMETER[&quot;scale_factor&quot;, 0.9999079], 
+  PARAMETER[&quot;false_easting&quot;, 155000.0], 
+  PARAMETER[&quot;false_northing&quot;, 463000.0], 
+  UNIT[&quot;m&quot;, 1.0], 
+  AXIS[&quot;Easting&quot;, EAST], 
+  AXIS[&quot;Northing&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;28992&quot;]]</nativeCRS>
+  <srs>EPSG:28992</srs>
+  <nativeBoundingBox>
+    <minx>130011.0</minx>
+    <maxx>132703.0</maxx>
+    <miny>458031.0</miny>
+    <maxy>459995.0</maxy>
+    <crs class="projected">EPSG:28992</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>3.0501174525180246</minx>
+    <maxx>7.345047048668708</maxx>
+    <miny>50.72860969022719</miny>
+    <maxy>53.718455402582535</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <metadata>
+    <entry key="cachingEnabled">false</entry>
+  </metadata>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--49761c3d:17f40de38c8:-7ff5</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <simpleConversionEnabled>false</simpleConversionEnabled>
+  <internationalTitle/>
+  <internationalAbstract/>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

@@ -1,0 +1,39 @@
+<dataStore>
+  <id>DataStoreInfoImpl--49761c3d:17f40de38c8:-7ffb</id>
+  <name>geodata</name>
+  <description>sqlserver geodata database</description>
+  <type>Microsoft SQL Server</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl-6ad39891:17f40cea613:-7fe2</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="schema">dbo</entry>
+    <entry key="Evictor run periodicity">300</entry>
+    <entry key="Force spatial index usage via hints">false</entry>
+    <entry key="Geometry metadata table">geometry_columns</entry>
+    <entry key="fetch size">1000</entry>
+    <entry key="Expose primary keys">false</entry>
+    <entry key="validate connections">true</entry>
+    <entry key="Connection timeout">20</entry>
+    <entry key="Use native geometry serialization">false</entry>
+    <entry key="Batch insert size">1</entry>
+    <entry key="database">geodata</entry>
+    <entry key="Integrated Security">false</entry>
+    <entry key="port">1433</entry>
+    <entry key="passwd">plain:07d8313e-75b1-45</entry>
+    <entry key="min connections">1</entry>
+    <entry key="host">sqlserver</entry>
+    <entry key="dbtype">sqlserver</entry>
+    <entry key="namespace">http://tailormap.nl/geodata/sqlserver/</entry>
+    <entry key="max connections">10</entry>
+    <entry key="Evictor tests per run">3</entry>
+    <entry key="Test while idle">true</entry>
+    <entry key="Use Native Paging">true</entry>
+    <entry key="user">geodata</entry>
+    <entry key="Max connection idle time">300</entry>
+  </connectionParameters>
+  <__default>false</__default>
+  <dateCreated>2022-02-28 15:07:45.412 UTC</dateCreated>
+  <dateModified>2022-03-24 15:05:08.451 UTC</dateModified>
+</dataStore>

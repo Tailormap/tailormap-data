@@ -1,0 +1,4 @@
+.git
+oracle/dumpdir/geodata.log
+geoserver/maven/target/
+geoserver/maven/src/main/webapp/data/logs/geoserver.log

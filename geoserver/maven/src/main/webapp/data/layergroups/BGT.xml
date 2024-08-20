@@ -1,0 +1,47 @@
+<layerGroup>
+  <id>LayerGroupInfoImpl--3dc80d05:17f462598a5:-7ffb</id>
+  <name>BGT</name>
+  <mode>SINGLE</mode>
+  <queryDisabled>true</queryDisabled>
+  <title>Basisregistratie Grootschalige Topografie</title>
+  <abstractTxt>BGT from various databases</abstractTxt>
+  <internationalTitle/>
+  <internationalAbstract/>
+  <publishables>
+    <published type="layer">
+      <id>LayerInfoImpl--3dc80d05:17f462598a5:-7ff1</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--3dc80d05:17f462598a5:-7ffc</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--3dc80d05:17f462598a5:-7ff6</id>
+    </published>
+  </publishables>
+  <styles>
+    <style/>
+    <style/>
+    <style/>
+  </styles>
+  <bounds>
+    <minx>130011.0</minx>
+    <maxx>132703.0</maxx>
+    <miny>458031.0</miny>
+    <maxy>459995.0</maxy>
+    <crs class="projected">EPSG:28992</crs>
+  </bounds>
+  <metadata>
+    <entry key="cacheAgeMax">3600</entry>
+    <entry key="cachingEnabled">true</entry>
+  </metadata>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <keywords>
+    <string>basisregistratie\@language=nl\;</string>
+    <string>topografie\@language=nl\;</string>
+  </keywords>
+  <dateCreated>2022-03-01 16:17:37.670 UTC</dateCreated>
+  <dateModified>2022-03-02 10:36:20.796 UTC</dateModified>
+</layerGroup>

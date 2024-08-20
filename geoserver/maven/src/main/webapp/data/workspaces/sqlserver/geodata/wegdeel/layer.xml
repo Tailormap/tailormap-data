@@ -1,0 +1,17 @@
+<layer>
+  <name>wegdeel</name>
+  <id>LayerInfoImpl--3dc80d05:17f462598a5:-7ff1</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-4bfe06d6:17b5d1cd0d0:f2a</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--3dc80d05:17f462598a5:-7ff2</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2022-03-02 09:55:06.630 UTC</dateCreated>
+  <dateModified>2022-03-24 15:03:54.211 UTC</dateModified>
+</layer>

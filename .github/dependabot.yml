@@ -1,0 +1,45 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: monday
+      time: "21:00"
+      timezone: Europe/Amsterdam
+    labels:
+      - build-infra
+
+
+  - package-ecosystem: "docker"
+    directories:
+      - /postgis/
+      - /oracle/
+      - /mssql/
+      - /geoserver/
+    schedule:
+      interval: "weekly"
+      day: monday
+      time: "21:10"
+      timezone: Europe/Amsterdam
+    labels:
+      - dependency
+    ignore: # stay on Tomcat 9 for now
+      - dependency-name: "tomcat"
+        versions:
+          - ">= 10"
+      - dependency-name: "maven"
+        versions:
+          - ">= 3-eclipse-temurin-17"
+
+
+  - package-ecosystem: "maven"
+    directory: /tailormap-data/geoserver/maven
+    schedule:
+      interval: "weekly"
+      day: monday
+      time: "21:20"
+      timezone: Europe/Amsterdam
+    labels:
+      - dependency
+

@@ -1,0 +1,16 @@
+<layer>
+  <name>begroeidterreindeel</name>
+  <id>LayerInfoImpl--3dc80d05:17f462598a5:-7ffc</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-4bfe06d6:17b5d1cd0d0:-976</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--3dc80d05:17f462598a5:-7ffd</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2022-03-01 16:09:27.36 UTC</dateCreated>
+</layer>

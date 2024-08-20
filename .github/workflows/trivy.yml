@@ -1,0 +1,56 @@
+name: 'Trivy Security Scan'
+on: # use pull request so this workflow does not fail when triggered by dependabot PR's
+  pull_request:
+  schedule:
+    - cron: "17 23 * * MON"
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - 'Visualise docker-compose files'
+    types:
+      - completed
+
+jobs:
+  build:
+    name: 'Trivy Scan'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: 'Trivy Cache'
+        uses: yogeshlonkar/trivy-cache-action@v0.1.6
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Run Trivy vulnerability scanner in repo mode'
+        uses: aquasecurity/trivy-action@0.24.0
+        if: always()
+        # docker run --rm -v trivy_cache:/root/.cache/ aquasec/trivy fs  --debug --format table --exit-code  1 --ignore-unfixed --vuln-type  os,library --scanners  vuln,secret --severity  CRITICAL,HIGH .
+        with:
+          scan-type: 'fs'
+          hide-progress: false
+          ignore-unfixed: true # Ignore unpatched/unfixed vulnerabilities
+          severity: 'CRITICAL,HIGH'
+          scanners: 'vuln,secret'
+          exit-code: '1'
+          format: 'table'
+          cache-dir: .trivy
+
+      - name: 'Run Trivy vulnerability scanner in IaC mode'
+        uses: aquasecurity/trivy-action@0.24.0
+        if: always()
+        # docker run --rm -v trivy_cache:/root/.cache/ aquasec/trivy config --debug  --format table --exit-code  1 --severity  CRITICAL,HIGH .
+        with:
+          scan-type: 'config'
+          hide-progress: false
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
+          skip-files: ''
+          exit-code: '1'
+          format: 'table'
+          cache-dir: .trivy
+

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:daily",
+    ":disableDependencyDashboard"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "labels": [
+        "docker-update"
+      ],
+      "commitMessagePrefix": "⬆️ Docker update: "
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "labels": [
+        "docker-update"
+      ],
+      "matchPackageNames": [
+        "tomcat"
+      ],
+      "allowedVersions": "<10",
+      "commitMessagePrefix": "⬆️ Docker update: "
+    }
+  ],
+  "enabledManagers": [
+    "docker-compose",
+    "dockerfile"
+  ],
+  "ignorePaths": []
+}
