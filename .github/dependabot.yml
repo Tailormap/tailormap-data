@@ -24,7 +24,7 @@ updates:
       timezone: Europe/Amsterdam
     labels:
       - dependency
-    ignore: # stay on Tomcat 9 for now
+    ignore: # stay on Tomcat 9 and java 17 for now
       - dependency-name: "tomcat"
         versions:
           - ">= 10"
