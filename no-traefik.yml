@@ -1,0 +1,9 @@
+networks:
+  traefik: !reset
+  tailormap-viewer:
+    name: tailormap-viewer
+    external: false
+
+services:
+  geoserver: !reset
+  geoserver-builder: !reset
