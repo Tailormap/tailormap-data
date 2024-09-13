@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>nl.tailormap.data</groupId>
+    <groupId>org.tailormap.data</groupId>
     <artifactId>geoserver</artifactId>
     <version>2.25.3</version>
     <packaging>war</packaging>
@@ -11,33 +11,22 @@
     <properties>
         <geoserver.version>${project.version}</geoserver.version>
     </properties>
-    <url>https://github.com/B3Partners/containers</url>
+    <url>https://github.com/Tailormap/tailormap-data</url>
     <organization>
-        <name>B3Partners</name>
-        <url>https://www.b3partners.nl/</url>
+        <name>Tailormap</name>
+        <url>https://www.tailormap.org/</url>
     </organization>
     <scm>
-        <connection>scm:git:git@github.com:B3Partners/containers.git</connection>
-        <developerConnection>scm:git:git@github.com:B3Partners/containers.git</developerConnection>
-        <url>https://github.com/B3Partners/containers/</url>
+        <connection>git@github.com:Tailormap/tailormap-data.git</connection>
+        <developerConnection>git@github.com:Tailormap/tailormap-data.git</developerConnection>
+        <url>https://github.com/Tailormap/tailormap-data.git</url>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
         <system>Jira</system>
         <url>https://b3partners.atlassian.net/browse/HTM</url>
     </issueManagement>
-    <distributionManagement>
-        <repository>
-            <id>repo.b3p.nl</id>
-            <name>B3Partners releases repository</name>
-            <url>https://repo.b3p.nl/nexus/repository/privatereleases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>repo.b3p.nl</id>
-            <name>B3Partners snapshots repository</name>
-            <url>https://repo.b3p.nl/nexus/repository/privatesnapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+    <distributionManagement/>
     <repositories>
         <repository>
             <id>b3p</id>
@@ -124,7 +113,7 @@
                     <failOnMissingWebXml>true</failOnMissingWebXml>
                     <warSourceExcludes/>
                     <packagingExcludes/>
-                    <webResources />
+                    <webResources/>
                     <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                     <overlays>
                         <overlay>
@@ -152,4 +141,5 @@
             <organizationUrl>https://www.b3partners.nl</organizationUrl>
         </developer>
     </developers>
+    <reporting/>
 </project>

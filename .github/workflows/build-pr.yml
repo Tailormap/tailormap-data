@@ -21,7 +21,7 @@ jobs:
 
       - name: 'Start tailormap-data database images'
         run: |
-          docker compose -f ./tailormap-data/docker-compose.yml -f ./tailormap-data/no-traefik.yml up -d postgis oracle sqlserver --wait
+          docker compose -f ./docker-compose.yml -f ./no-traefik.yml up -d postgis oracle sqlserver --wait
           printf "\nPostGIS logs:\n"
           docker logs postgis
           printf "\nOracle logs:\n"
