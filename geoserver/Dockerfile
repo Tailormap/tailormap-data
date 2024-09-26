@@ -5,10 +5,31 @@ COPY maven/ /tmp/
 
 RUN mvn -U clean package --fail-at-end --settings .mvn/settings.xml
 
-FROM tomcat:9.0.94-jre17-temurin AS geoserver
+FROM tomcat:9.0.95-jre17-temurin AS geoserver
 
 ARG TZ="Europe/Amsterdam"
 ARG GEOSERVER_DATA_DIR="/opt/geoserver-data"
+
+ENV JDK_JAVA_OPTIONS="-Djava.awt.headless=true \
+                            -Djava.security.egd=file:/dev/./urandom \
+                            -server -Xms256m -Xmx1g \
+                            --add-exports=java.desktop/sun.awt.image=ALL-UNNAMED \
+                            --add-opens=java.base/java.lang=ALL-UNNAMED \
+                            --add-opens=java.base/java.util=ALL-UNNAMED \
+                            --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
+                            --add-opens=java.base/java.text=ALL-UNNAMED \
+                            --add-opens=java.desktop/java.awt.font=ALL-UNNAMED \
+                            --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED \
+                            --add-opens=java.naming/com.sun.jndi.ldap=ALL-UNNAMED \
+                            --add-opens=java.desktop/sun.java2d.pipe=ALL-UNNAMED \
+                            -Dfile.encoding=UTF-8 \
+                            -Djavax.servlet.request.encoding=UTF-8 \
+                            -Djavax.servlet.response.encoding=UTF-8 \
+                            -D-XX:SoftRefLRUPolicyMSPerMB=36000 \
+                            -Xbootclasspath/a:$CATALINA_HOME/lib/marlin.jar \
+                            -Dsun.java2d.renderer=sun.java2d.marlin.DMarlinRenderingEngine \
+                            -Dorg.geotools.coverage.jaiext.enabled=true \
+                            -Djts.relate=ng"
 
 RUN set -eux;ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     # cleanup localization and example apps
@@ -26,6 +47,7 @@ RUN set -eux;ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/t
     && chown -R www-data:www-data $GEOSERVER_DATA_DIR
 
 COPY --chown=www-data:www-data --from=builder /tmp/target/geoserver.war /usr/local/tomcat/webapps/
+COPY --from=builder /tmp/target/geoserver/WEB-INF/lib/marlin-*.jar /usr/local/tomcat/lib/marlin.jar
 COPY --chown=www-data:www-data maven/src/main/webapp/data/ $GEOSERVER_DATA_DIR
 COPY ./docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 
