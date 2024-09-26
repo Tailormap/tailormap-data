@@ -1,6 +1,6 @@
 FROM postgis/postgis:16-3.4
 
-ENV LANG en_US.utf8
+ENV LANG=en_US.utf8
 
 ARG TZ="Europe/Amsterdam"
 

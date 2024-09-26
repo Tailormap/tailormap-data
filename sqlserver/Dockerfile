@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/mssql/server:2022-latest
 
-ENV LANG en_US.utf8
+ENV LANG=en_US.utf8
 ENV ACCEPT_EULA=Y
 
 ARG TZ="Europe/Amsterdam"
