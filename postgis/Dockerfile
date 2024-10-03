@@ -1,4 +1,4 @@
-FROM postgis/postgis:17-3.5
+FROM postgis/postgis:17-3.4
 
 ENV LANG=en_US.utf8
 
