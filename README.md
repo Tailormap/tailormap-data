@@ -37,7 +37,7 @@ export GEOSERVER_ADMIN_PASSWORD=geoserver123
 export GEODATA_PASSWORD=07d8313e-75b1-46
 export GEOSERVER_DATA_DIR=/opt/geoserver-data
 
-docker-compose up -d --build
+docker compose -f ./docker-compose.yml up -d --build
 ```
 will (re)build what is needed and start the containers in this stack. 
 
@@ -52,17 +52,19 @@ $env:GEOSERVER_DATA_DIR="/opt/geoserver-data"
 $env:GEOSERVER_ADMIN_PASSWORD="geoserver123"
 $env:GEODATA_PASSWORD="07d8313e-75b1-46"
 
-docker-compose up -d --build
+docker compose -f ./docker-compose.yml up -d --build
 
 ```
 _Note that on Windows you probably need to open TCP firewall ports for GeoServer (8080), Oracle (1521), PostgreSQL (5432)
 and SQL Server (1433)._
 
-To rebuild and deploy a single service (eg. sqlserver) `docker-compose up -d --no-deps --build --force-recreate sqlserver` 
+To rebuild and deploy a single service (eg. sqlserver) 
+`docker compose -f ./docker-compose.yml up -d --no-deps --build --force-recreate sqlserver` 
 
 ### Cleanup
 
-Cleanup all built images and volumes (including persistent data!) using `docker-compose down --rmi all -v`
+Cleanup all built images and volumes (including persistent data!) using 
+`docker compose -f ./docker-compose.yml down --rmi all -v`
 
 
 ## Testdata in these images
