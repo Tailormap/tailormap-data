@@ -5,11 +5,18 @@ COPY maven/ /tmp/
 
 RUN mvn -U clean package --fail-at-end --settings .mvn/settings.xml
 
-FROM tomcat:9.0.95-jre17-temurin AS geoserver
+FROM tomcat:9.0.96-jre17-temurin AS geoserver
+
+LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
+      org.opencontainers.image.description="A GeoServer image for the Tailormap stack" \
+      org.opencontainers.image.vendor="Tailormap" \
+      org.opencontainers.image.title="Tailormap data GeoServer" \
+      org.opencontainers.image.source="https://github.com/Tailormap/tailormap-data/tree/main/geoserver" \
+      org.opencontainers.image.licenses="GPL-2.0"
 
 ARG TZ="Europe/Amsterdam"
 ARG GEOSERVER_DATA_DIR="/opt/geoserver-data"
-
+ENV LANG=en_US.utf8
 ENV JDK_JAVA_OPTIONS="-Djava.awt.headless=true \
                             -Djava.security.egd=file:/dev/./urandom \
                             -server -Xms256m -Xmx1g \
@@ -52,12 +59,5 @@ COPY --chown=www-data:www-data maven/src/main/webapp/data/ $GEOSERVER_DATA_DIR
 COPY ./docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 
 USER www-data:www-data
-
-LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
-      org.opencontainers.image.description="A GeoServer image for the Tailormap stack" \
-      org.opencontainers.image.vendor="Tailormap" \
-      org.opencontainers.image.title="Tailormap data GeoServer" \
-      org.opencontainers.image.source="https://github.com/Tailormap/tailormap-data/tree/main/geoserver" \
-      org.opencontainers.image.licenses="GPL-2.0"
 
 ENTRYPOINT /bin/bash /docker-entrypoint-initdb.d/entrypoint.sh

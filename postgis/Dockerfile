@@ -1,8 +1,14 @@
-FROM postgis/postgis:17-3.4
+FROM postgis/postgis:17-3.5
 
-ENV LANG=en_US.utf8
+LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
+      org.opencontainers.image.description="A PostGIS image for the Tailormap stack" \
+      org.opencontainers.image.vendor="Tailormap" \
+      org.opencontainers.image.title="Tailormap data PostGIS" \
+      org.opencontainers.image.source="https://github.com/Tailormap/tailormap-data/tree/main/postgis" \
+      org.opencontainers.image.licenses="GPL-2.0"
 
 ARG TZ="Europe/Amsterdam"
+ENV LANG=en_US.utf8
 
 USER root
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
