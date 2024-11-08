@@ -34,3 +34,20 @@ jobs:
 
       - name: 'Push tailormap-data database images'
         run: docker compose -f ./docker-compose.yml push postgis oracle sqlserver
+
+      - name: 'Login to GitHub container registry'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Build and push Solr image'
+        run: |
+          export BUILDX_NO_DEFAULT_ATTESTATIONS=1
+          docker run --privileged --rm tonistiigi/binfmt --install all
+          SOLRVERSION=$(grep "FROM solr" -m1 solr/Dockerfile | cut -f2 -d":"| cut -f1 -d":")
+          echo "Building Solr version $SOLRVERSION"
+          docker buildx create --use --name tailormap-builder
+          docker buildx use tailormap-builder
+          docker buildx build --platform linux/amd64,linux/arm64 --build-arg SOLRVERION=${SOLRVERSION} --tag ghcr.io/tailormap/solr:${SOLRVERSION} --push --pull ./solr
