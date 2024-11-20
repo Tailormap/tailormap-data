@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.tailormap.data</groupId>
     <artifactId>geoserver</artifactId>
-    <version>2.26.0</version>
+    <version>2.26.1</version>
     <packaging>war</packaging>
     <name>Tailormap Data Geoserver</name>
     <description>WAR-overlay project with custom GeoServer for Tailormap test and demo</description>
