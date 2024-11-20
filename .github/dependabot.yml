@@ -13,11 +13,11 @@ updates:
 
   - package-ecosystem: "docker"
     directories:
-      - postgis/
-      - oracle/
-      - mssql/
-      - geoserver/
-      - solr/
+      - /postgis/
+      - /oracle/
+      - /sqlserver/
+      - /geoserver/
+      - /solr/
     schedule:
       interval: "weekly"
       day: monday

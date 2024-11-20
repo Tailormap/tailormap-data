@@ -80,6 +80,7 @@ services:
       test: /opt/mssql-tools18/bin/sqlcmd -No -U sa -P $$SA_PASSWORD -Q "select 1" -b -o /dev/null
     restart: unless-stopped
 
+
   oracle:
     container_name: oracle
     image: docker.b3p.nl/tailormap/tailormap-data_oracle:snapshot
