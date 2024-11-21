@@ -22,6 +22,6 @@ RUN wget https://repo.b3p.nl/nexus/repository/public/org/locationtech/jts/jts-co
     && locale-gen "en_US.UTF-8" \
     && apt update && apt upgrade -y && apt autoremove -y && apt autoclean && apt clean \
     && rm -rf /tmp/* && rm -rf /var/tmp/* \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apt/* && rm -rf /var/cache/debconf/* && rm -rf /var/cache/fontconfig/*
 
 USER solr
