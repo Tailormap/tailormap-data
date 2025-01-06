@@ -1,0 +1,16 @@
+<layer>
+    <name>kadastraal_perceel</name>
+    <id>LayerInfoImpl--62bde6ac:1943a4587c9:-79d1</id>
+    <type>VECTOR</type>
+    <defaultStyle>
+        <id>StyleInfoImpl--570ae188:124761b8d78:-7fdf</id>
+    </defaultStyle>
+    <resource class="featureType">
+        <id>FeatureTypeInfoImpl--62bde6ac:1943a4587c9:-79d2</id>
+    </resource>
+    <attribution>
+        <logoWidth>0</logoWidth>
+        <logoHeight>0</logoHeight>
+    </attribution>
+    <dateCreated>2025-01-06 14:11:18.983 UTC</dateCreated>
+</layer>
