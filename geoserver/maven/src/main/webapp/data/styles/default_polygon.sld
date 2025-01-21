@@ -17,7 +17,10 @@
       <FeatureTypeStyle>
         <Rule>
           <Name>rule1</Name>
-          <Title>Gray Polygon with Black Outline</Title>
+          <Title>Gray Polygon with Black Outline
+            <Localized lang="nl">Grijs vlak met zwarte rand</Localized>
+            <Localized lang="nl">Graue Fläche mit schwarzem Rand</Localized>
+          </Title>
           <Abstract>A polygon with a gray fill and a 1 pixel black outline</Abstract>
           <PolygonSymbolizer>
             <Fill>
