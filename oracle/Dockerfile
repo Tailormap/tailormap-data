@@ -1,4 +1,4 @@
-FROM ghcr.io/gvenzl/oracle-free:23.4
+FROM ghcr.io/gvenzl/oracle-free:23.6
 
 LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
       org.opencontainers.image.description="An Oracle Free image for the Tailormap stack" \
