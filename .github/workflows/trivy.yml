@@ -22,7 +22,7 @@ jobs:
           lfs: false
 
       - name: 'Trivy Cache'
-        uses: yogeshlonkar/trivy-cache-action@v0.1.12
+        uses: yogeshlonkar/trivy-cache-action@v0.1.13
         with:
           gh-token: ${{ secrets.GITHUB_TOKEN }}
 
