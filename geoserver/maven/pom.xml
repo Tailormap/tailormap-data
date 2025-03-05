@@ -31,9 +31,9 @@
         <repository>
             <id>b3p</id>
             <name>Releases and snapshots hosted by B3Partners</name>
-            <url>https://repo.b3p.nl/nexus/repository/public/</url>
+            <url>https://repo.osgeo.org/repository/release/</url>
             <snapshots>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
             </snapshots>
         </repository>
     </repositories>
