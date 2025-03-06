@@ -47,7 +47,7 @@ jobs:
 
       - name: 'Build and push Solr image'
         run: |
-          export BUILDX_NO_DEFAULT_ATTESTATIONS=1
+          # export BUILDX_NO_DEFAULT_ATTESTATIONS=1
           SOLRVERSION=$(grep "FROM solr" -m1 solr/Dockerfile | cut -f2 -d":"| cut -f1 -d":")
           echo "Building Solr version $SOLRVERSION"
-          docker buildx build --build-arg SOLRVERION=${SOLRVERSION} --tag ghcr.io/tailormap/solr:${SOLRVERSION} --push --pull ./solr
+          docker buildx build --build-arg SOLRVERION=${SOLRVERSION} --tag ghcr.io/tailormap/solr:${SOLRVERSION} --tag ghcr.io/tailormap/solr:latest --push --pull ./solr
