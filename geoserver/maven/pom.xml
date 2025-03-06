@@ -29,8 +29,8 @@
     <distributionManagement/>
     <repositories>
         <repository>
-            <id>b3p</id>
-            <name>Releases and snapshots hosted by B3Partners</name>
+            <id>osgeo</id>
+            <name>Releases and snapshots hosted by OSGeo</name>
             <url>https://repo.osgeo.org/repository/release/</url>
             <snapshots>
                 <enabled>false</enabled>
