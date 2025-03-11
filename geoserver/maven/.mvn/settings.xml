@@ -2,12 +2,4 @@
 <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xmlns="http://maven.apache.org/SETTINGS/1.2.0"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
-    <mirrors>
-        <mirror>
-            <id>b3p.nl</id>
-            <mirrorOf>*</mirrorOf>
-            <name>Releases and snapshots hosted and proxied by B3Partners</name>
-            <url>https://repo.b3p.nl/nexus/repository/public/</url>
-        </mirror>
-    </mirrors>
 </settings>

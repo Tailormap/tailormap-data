@@ -4,6 +4,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ ( github.ref == 'refs/heads/main' ) && format('ci-main-{0}', github.sha) || format('ci-main-{0}', github.ref) }}
   cancel-in-progress: true
 
+env:
+  COMPOSE_BAKE: true
+  BUILDX_NO_DEFAULT_ATTESTATIONS: true
+
 on:
   pull_request:
 
