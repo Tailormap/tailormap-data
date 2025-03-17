@@ -1,6 +1,6 @@
 FROM solr:9.8.1
 
-ARG SOLRVERSION=9.8.0
+ARG SOLRVERSION=9.8.1
 ARG JTSVERSION=1.20.0
 ARG TZ="Europe/Amsterdam"
 ENV LANG=en_US.utf8
@@ -15,7 +15,7 @@ LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
       org.opencontainers.image.version="$SOLRVERSION"
 
 USER root
-RUN wget https://repo.b3p.nl/nexus/repository/public/org/locationtech/jts/jts-core/$JTSVERSION/jts-core-$JTSVERSION.jar -P /opt/solr-$SOLRVERSION/server/solr-webapp/webapp/WEB-INF/lib/ \
+RUN wget https://repo1.maven.org/maven2/org/locationtech/jts/jts-core/$JTSVERSION/jts-core-$JTSVERSION.jar -P /opt/solr-$SOLRVERSION/server/solr-webapp/webapp/WEB-INF/lib/ \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
     && sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
