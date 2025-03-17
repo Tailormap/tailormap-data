@@ -53,4 +53,4 @@ jobs:
         run: |
           SOLRVERSION=$(grep "FROM solr" -m1 solr/Dockerfile | cut -f2 -d":"| cut -f1 -d":")
           echo "Building Solr version $SOLRVERSION"
-          docker buildx build --build-arg SOLRVERION=${SOLRVERSION} --tag ghcr.io/tailormap/solr:${SOLRVERSION} --tag ghcr.io/tailormap/solr:snapshot --push --pull ./solr
+          docker buildx build --build-arg SOLRVERSION=${SOLRVERSION} --tag ghcr.io/tailormap/solr:${SOLRVERSION} --tag ghcr.io/tailormap/solr:snapshot --push --pull ./solr
