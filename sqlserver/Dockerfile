@@ -23,4 +23,5 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && chmod +r /docker-entrypoint-initdb.d/geodata.backup.dump
 
 USER mssql
-ENTRYPOINT /bin/bash ./docker-entrypoint-initdb.d/entrypoint.sh
+SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["./docker-entrypoint-initdb.d/entrypoint.sh"]

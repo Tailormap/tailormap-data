@@ -60,4 +60,5 @@ COPY ./docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 
 USER www-data:www-data
 
-ENTRYPOINT /bin/bash /docker-entrypoint-initdb.d/entrypoint.sh
+SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["/docker-entrypoint-initdb.d/entrypoint.sh"]
