@@ -7,3 +7,4 @@ networks:
 services:
   geoserver: !reset
   geoserver-builder: !reset
+  tiles3d-proxy: !reset
