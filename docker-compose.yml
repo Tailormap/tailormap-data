@@ -165,3 +165,47 @@ services:
     #      retries: 3
     #      start_period: 1m
     restart: unless-stopped
+
+  tiles3d-proxy:
+    image: traefik:3.3.5
+    container_name: traefik-tiles3d-proxy
+    restart: unless-stopped
+    networks:
+      - traefik
+    entrypoint: /bin/sh -c 'echo "$$DYNAMIC_CONFIG" > /dynamic.yml && /entrypoint.sh $$CMD'
+    environment:
+      TZ: "Europe/Amsterdam"
+      CMD: >-
+        --providers.file.filename=/dynamic.yml
+        --entryPoints.web.address=:80
+        --log.level=INFO
+      DYNAMIC_CONFIG: |-
+        http:          
+          routers:
+            proxy-router:
+              rule: "PathPrefix(`/`)"
+              service: proxy-service
+              middlewares: [set-headers, add-prefix]
+          middlewares:
+            set-headers:
+              headers:
+                customRequestHeaders:
+                  Host: "api.pdok.nl"
+                  Authorization: ""
+            add-prefix:
+              addPrefix:
+                prefix: /kadaster/3d-basisvoorziening/ogc/v1_0/collections/gebouwen
+          services:
+            proxy-service:
+              loadBalancer:
+                servers:
+                  - url: https://api.pdok.nl
+    labels:
+      traefik.enable: true
+      traefik.http.routers.tailormap-data-tiles3d-proxy.rule: "Host(`${HOST:-snapshot.tailormap.nl}`) && PathPrefix(`/tiles3d-proxy/`)"
+      traefik.http.routers.tailormap-data-tiles3d-proxy.tls: "true"
+      traefik.http.routers.tailormap-data-tiles3d-proxy.tls.certresolver: "letsencrypt"
+      traefik.http.routers.tailormap-data-tiles3d-proxy.middlewares: tailormap-data-tiles3d-proxy-stripprefix,tailormap-data-tiles3d-proxy-auth
+      traefik.http.middlewares.tailormap-data-tiles3d-proxy-stripprefix.stripprefix.prefixes: "/tiles3d-proxy"
+      traefik.http.middlewares.tailormap-data-tiles3d-proxy-auth.basicauth.users: "b3p:$$2y$$05$$5fsAqN08V93IdrB4IQfSQu6Fgnh2R982.ktljz945bFcND9TkjkHO"
+      traefik.http.services.tailormap-data-tiles3d-proxy.loadbalancer.server.port: "80"
