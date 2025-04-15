@@ -34,6 +34,17 @@ updates:
           - ">= 3-eclipse-temurin-17"
 
 
+  - package-ecosystem: "docker-compose"
+    directory: /
+    schedule:
+      interval: "weekly"
+      day: monday
+      time: "21:05"
+      timezone: Europe/Amsterdam
+    labels:
+      - dependency
+
+
   - package-ecosystem: "maven"
     directory: /geoserver/maven
     schedule:
