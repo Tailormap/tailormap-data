@@ -1,5 +1,6 @@
 name: 'Visualise docker-compose files'
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - '**/*.yml'
@@ -9,6 +10,9 @@ jobs:
   visualize:
     name: 'Visualise docker-compose files'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
