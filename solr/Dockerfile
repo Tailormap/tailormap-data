@@ -2,7 +2,7 @@ FROM solr:9.8.1
 
 ARG SOLRVERSION=9.8.1
 ARG JTSVERSION=1.20.0
-ARG TZ="Europe/Amsterdam"
+ENV TZ="Europe/Amsterdam"
 ENV LANG=en_US.utf8
 
 LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
