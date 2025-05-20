@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/mssql/server:2022-latest
+FROM mcr.microsoft.com/mssql/server:2025-latest
 
 LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
       org.opencontainers.image.description="A SQL Server Developer image for the Tailormap stack" \
