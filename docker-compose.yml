@@ -105,7 +105,7 @@ services:
       interval: 1m
       timeout: 5s
       retries: 5
-      start_period: 1m
+      start_period: 2m
       test: healthcheck.sh
     restart: unless-stopped
 
