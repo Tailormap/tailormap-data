@@ -54,3 +54,9 @@ jobs:
           SOLRVERSION=$(grep "FROM solr" -m1 solr/Dockerfile | cut -f2 -d":"| cut -f1 -d":")
           echo "Building Solr version $SOLRVERSION"
           docker buildx build --build-arg SOLRVERSION=${SOLRVERSION} --tag ghcr.io/tailormap/solr:${SOLRVERSION} --tag ghcr.io/tailormap/solr:snapshot --push --pull ./solr
+
+      - name: 'Build and push Prometheus image'
+        run: |
+          PROMVERSION=$(grep "FROM prom/prometheus" -m1 prometheus/Dockerfile | cut -f2 -d":"| cut -f1 -d":")
+          echo "Building Prometheus version $PROMVERSION"
+          docker buildx build --build-arg PROMVERSION=${PROMVERSION} --tag ghcr.io/tailormap/prometheus:${PROMVERSION} --tag ghcr.io/tailormap/prometheus:snapshot --push --pull ./prometheus

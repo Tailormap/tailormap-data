@@ -20,10 +20,27 @@ jobs:
         with:
           lfs: true
 
-      - name: 'Build'
+      - name: 'Build Solr image'
+        if: ${{ github.event.pull_request && contains(github.event.pull_request.changed_files, 'solr/') }}
+        run: |
+          SOLRVERSION=$(grep "FROM solr" -m1 solr/Dockerfile | cut -f2 -d":"| cut -f1 -d":")
+          echo "Building Solr version $SOLRVERSION"
+          docker buildx build --build-arg SOLRVERSION=${SOLRVERSION} --tag ghcr.io/tailormap/solr:${SOLRVERSION} --tag ghcr.io/tailormap/solr:snapshot --pull ./solr
+          
+
+      - name: 'Build Prometheus image'
+        if: ${{ github.event.pull_request && contains(github.event.pull_request.changed_files, 'prometheus/') }}
+        run: |
+          PROMVERSION=$(grep "FROM prom/prometheus" -m1 prometheus/Dockerfile | cut -f2 -d":"| cut -f1 -d":")
+          echo "Building Prometheus version $PROMVERSION"
+          docker buildx build --build-arg PROMVERSION=${PROMVERSION} --tag ghcr.io/tailormap/prometheus:${PROMVERSION} --tag ghcr.io/tailormap/prometheus:snapshot --pull ./prometheus
+
+      - name: 'Build tailormap-data images'
+        if: ${{ github.event.pull_request && ( contains(github.event.pull_request.changed_files, 'docker-compose.yml') || contains(github.event.pull_request.changed_files, 'oracle/') || contains(github.event.pull_request.changed_files, 'postgis/') || contains(github.event.pull_request.changed_files, 'sqlserver/') ) }}
         run: docker compose -f ./docker-compose.yml build --pull --parallel --compress --no-cache
 
       - name: 'Start tailormap-data database images'
+        if: ${{ steps.build-tailormap-data-images.conclusion == 'success' }}
         run: |
           docker compose -f ./docker-compose.yml -f ./no-traefik.yml up -d postgis oracle sqlserver --wait
           printf "\nPostGIS logs:\n"
