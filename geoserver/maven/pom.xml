@@ -69,7 +69,7 @@
         </dependency>
         <dependency>
             <groupId>org.geoserver.extension</groupId>
-            <artifactId>gs-excel</artifactId>
+            <artifactId>gs-excel-wfs</artifactId>
             <version>${geoserver.version}</version>
         </dependency>
         <dependency>
