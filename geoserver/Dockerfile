@@ -1,4 +1,4 @@
-FROM maven:3-eclipse-temurin-17-alpine AS builder
+FROM maven:3-eclipse-temurin-21-alpine AS builder
 # this will build a war overlay of GeoServer as defined in the pom.xml and then exit
 WORKDIR /tmp
 COPY maven/ /tmp/
