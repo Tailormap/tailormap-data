@@ -31,7 +31,7 @@ updates:
           - ">= 10"
       - dependency-name: "maven"
         versions:
-          - ">= 3-eclipse-temurin-17"
+          - ">= 3-eclipse-temurin-21"
 
 
   - package-ecosystem: "docker-compose"

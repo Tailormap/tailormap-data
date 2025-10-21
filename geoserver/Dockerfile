@@ -1,11 +1,11 @@
-FROM maven:3-eclipse-temurin-17-alpine AS builder
+FROM maven:3-eclipse-temurin-21-alpine AS builder
 # this will build a war overlay of GeoServer as defined in the pom.xml and then exit
 WORKDIR /tmp
 COPY maven/ /tmp/
 
 RUN mvn -U clean package --fail-at-end --settings .mvn/settings.xml
 
-FROM tomcat:9.0.110-jre17-temurin AS geoserver
+FROM tomcat:9.0.111-jre21-temurin AS geoserver
 
 LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
       org.opencontainers.image.description="A GeoServer image for the Tailormap stack" \
