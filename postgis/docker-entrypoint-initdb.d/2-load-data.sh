@@ -7,7 +7,7 @@ echo "Loading geodata dump"
 PGPASSWORD="$GEODATA_PASSWORD" gunzip < /docker-entrypoint-initdb.d/2-geodata.sql.gz.dump | psql --username geodata --dbname geodata
 
 echo "Loading osm dump"
-PGPASSWORD="$GEODATA_PASSWORD" osm2pgsql -vGK --create --database=geodata --username=geodata --prefix=osm --output-pgsql-schema=osm /docker-entrypoint-initdb.d/2-geodata.osm.pbf
+PGPASSWORD="$GEODATA_PASSWORD" osm2pgsql -vGK --create --database=geodata -U geodata --prefix=osm --output-pgsql-schema=osm /docker-entrypoint-initdb.d/2-geodata.osm.pbf
 
 echo "Loading kadastraal_perceel dump"
 PGPASSWORD="$GEODATA_PASSWORD" gunzip < /docker-entrypoint-initdb.d/4-kadastraal_perceel.sql.gz | psql --username geodata --dbname geodata
