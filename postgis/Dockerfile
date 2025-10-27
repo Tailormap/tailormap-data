@@ -1,4 +1,4 @@
-FROM postgis/postgis:17-3.5
+FROM postgis/postgis:18-3.6
 
 LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
       org.opencontainers.image.description="A PostGIS image for the Tailormap stack" \

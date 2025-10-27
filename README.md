@@ -31,7 +31,7 @@ will build but not run the stack
 **NOTE** For integration testing `tailormap-api` do not use this stack but use the `docker-compose.yml` file in
 `build/ci/` of the Tailormap API project. Use the above command to build the images locally though.
 
-![Deployment diagram](docker-compose.VizFormats.svg)
+![Deployment diagram](docker-compose.svg)
 
 For Bash:
 
