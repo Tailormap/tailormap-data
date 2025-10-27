@@ -37,7 +37,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fa6efb5b-075b-4b7b-aab0-96108cd77e76}
       GEODATA_PASSWORD: ${GEODATA_PASSWORD:-07d8313e-75b1-45}
     volumes:
-      - postgis-db:/var/lib/postgresql/data
+      - postgis-db:/var/lib/postgresql
     ports:
       - "${BIND_IP:-127.0.0.1}:5432:5432"
     networks:
