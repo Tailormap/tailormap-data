@@ -167,7 +167,7 @@ services:
     restart: unless-stopped
 
   tiles3d-proxy:
-    image: traefik:3.5.3
+    image: traefik:3.5.4
     container_name: traefik-tiles3d-proxy
     restart: unless-stopped
     networks:
