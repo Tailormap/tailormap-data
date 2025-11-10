@@ -32,3 +32,36 @@ CREATE TABLE pk_variation_serial
 INSERT INTO pk_variation_serial (file_name, geom)
 VALUES ('parking', SDO_GEOMETRY('POINT(132959 457715)', 28992));
 /
+
+CREATE TABLE pk_variation_integer
+(
+    integer_id INTEGER PRIMARY KEY,
+    file_name  VARCHAR(255 CHAR),
+    GEOM                   SDO_GEOMETRY
+)
+/
+INSERT INTO pk_variation_integer (integer_id, file_name, geom)
+VALUES (1,'parking', SDO_GEOMETRY('POINT(132959 457715)', 28992));
+/
+
+CREATE TABLE pk_variation_decimal
+(
+    decimal_id NUMBER(10,0) PRIMARY KEY,
+    file_name  VARCHAR(255 CHAR),
+    GEOM                   SDO_GEOMETRY
+)
+/
+INSERT INTO pk_variation_decimal (decimal_id, file_name, geom)
+VALUES (1,'parking', SDO_GEOMETRY('POINT(132959 457715)', 28992));
+/
+
+CREATE TABLE pk_variation_numeric
+(
+    numeric_id NUMBER(7,0) PRIMARY KEY,
+    file_name  VARCHAR(255 CHAR),
+    GEOM                   SDO_GEOMETRY
+)
+/
+INSERT INTO pk_variation_numeric (numeric_id, file_name, geom)
+VALUES (1,'parking', SDO_GEOMETRY('POINT(132959 457715)', 28992));
+/

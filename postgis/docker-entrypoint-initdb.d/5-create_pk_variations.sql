@@ -11,7 +11,7 @@ VALUES ('parking', st_geomfromtext('POINT(132959 457715)', 28992));
 
 CREATE TABLE pk_variation_bigint
 (
-    bigint_id UUID PRIMARY KEY,
+    bigint_id BIGINT PRIMARY KEY,
     file_name VARCHAR(255),
     geom      GEOMETRY(Point, 28992)
 );
@@ -26,3 +26,30 @@ CREATE TABLE pk_variation_serial
 );
 INSERT INTO pk_variation_serial (file_name, geom)
 VALUES ('parking', st_geomfromtext('POINT(132959 457715)', 28992));
+
+CREATE TABLE pk_variation_integer
+(
+    integer_id INTEGER PRIMARY KEY,
+    file_name  VARCHAR(255),
+    geom       GEOMETRY(Point, 28992)
+);
+INSERT INTO pk_variation_integer (integer_id, file_name, geom)
+VALUES (1, 'parking', st_geomfromtext('POINT(132959 457715)', 28992));
+
+CREATE TABLE pk_variation_decimal
+(
+    decimal_id DECIMAL(10,0) PRIMARY KEY,
+    file_name  VARCHAR(255),
+    geom       GEOMETRY(Point, 28992)
+);
+INSERT INTO pk_variation_decimal (decimal_id, file_name, geom)
+VALUES (1, 'parking', st_geomfromtext('POINT(132959 457715)', 28992));
+
+CREATE TABLE pk_variation_numeric
+(
+    numeric_id NUMERIC(7,0) PRIMARY KEY,
+    file_name  VARCHAR(255),
+    geom       GEOMETRY(Point, 28992)
+);
+INSERT INTO pk_variation_numeric (numeric_id, file_name, geom)
+VALUES (1, 'parking', st_geomfromtext('POINT(132959 457715)', 28992));
