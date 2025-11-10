@@ -27,9 +27,21 @@ jobs:
           echo "Building Solr version $SOLRVERSION"
           docker buildx build --build-arg SOLRVERSION=${SOLRVERSION} --tag ghcr.io/tailormap/solr:${SOLRVERSION} --tag ghcr.io/tailormap/solr:snapshot --pull ./solr
 
+      - name: 'Check for relevant file changes in data stack'
+        id: files-changed
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            images:
+              - 'docker-compose.yml'
+              - 'oracle/**'
+              - 'postgis/**'
+              - 'sqlserver/**'
+
       - name: 'Build tailormap-data images'
-        if: ${{ github.event.pull_request && ( contains(github.event.pull_request.changed_files, 'docker-compose.yml') || contains(github.event.pull_request.changed_files, 'oracle/') || contains(github.event.pull_request.changed_files, 'postgis/') || contains(github.event.pull_request.changed_files, 'sqlserver/') ) }}
-        run: docker compose -f ./docker-compose.yml build --pull --parallel --compress --no-cache
+        id: build-tailormap-data-images
+        if: steps.files-changed.outputs.images == 'true'
+        run: docker compose -f ./docker-compose.yml build --pull --parallel --compress
 
       - name: 'Start tailormap-data database images'
         if: ${{ steps.build-tailormap-data-images.conclusion == 'success' }}
