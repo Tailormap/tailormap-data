@@ -14,7 +14,7 @@ environment variable. This incurs a config reload as well.
 
 The Solr image is build using `docker buildx` from the `solr/Dockerfile` in a multi-platform build. Check the workflow
 file `.github/workflows/build-publish.yml` for details.
-This image is used to provide a Solr instance for Tailormap and is available using eg. `docker pull ghcr.io/tailormap/solr:9.7.0`.
+This image is used to provide a Solr instance for Tailormap and is available using eg. `docker pull ghcr.io/tailormap/solr:snapshot`.
 
 ## Building and running the stack
 
@@ -66,9 +66,8 @@ docker compose -f ./docker-compose.yml up -d --build
 
 ```
 
-_Note that on Windows you probably need to open TCP firewall ports for GeoServer (8080), Oracle (1521), PostgreSQL (
-5432)
-and SQL Server (1433)._
+_Note that on Windows you probably need to open TCP firewall ports for GeoServer (8080), Oracle (1521), 
+PostgreSQL (5432) and SQL Server (1433).
 
 To rebuild and deploy a single service (eg. sqlserver)
 `docker compose -f ./docker-compose.yml up -d --no-deps --build --force-recreate sqlserver`
@@ -109,7 +108,7 @@ docker run -it --rm --network=host ghcr.io/b3partners/brmo-bgt-loader:snapshot d
 Note that the postgis image will load any `*.sql` and `*.sql.gz` into the default (postgres) database, we add `.dump`
 
 ```bash
-docker-compose exec -u postgres postgis pg_dump --no-owner --compress=9 -xE UTF-8 \
+docker compose exec -u postgres postgis pg_dump --no-owner --compress=9 -xE UTF-8 \
       --exclude-table=spatial_ref_sys,geography_columns,geometry_columns,brmo_metadata \
       -S postgres --disable-triggers --dbname=geodata -f /tmp/dump.sql.gz
 # Docker Compose 2 docker compose cp postgis:/tmp/dump.sql.gz postgis/initdb/geodata.sql.gz
@@ -150,7 +149,7 @@ and exported using datapump:
 
 ```bash
 docker exec oracle rm -f /tmp/dumpdir/*
-docker-compose exec -u oracle oracle expdp geodata/07d8313e-75b1-45@localhost:1521/FREEPDB1 \
+docker compose exec -u oracle oracle expdp geodata/07d8313e-75b1-45@localhost:1521/FREEPDB1 \
                     DUMPFILE=dumpdir:geodata.dump LOGFILE=dumpdir:geodata.log SCHEMAS=geodata
 docker cp oracle:/tmp/dumpdir/ oracle/
 ```
@@ -179,7 +178,7 @@ After loading the BGT a `geometry_columns` table was added using `geometry_colum
 
 ```shell
 docker exec sqlserver rm -f /tmp/geodata.bak
-docker-compose exec -u mssql sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost \
+docker compose exec -u mssql sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost \
               -Q "BACKUP DATABASE geodata TO DISK='/tmp/geodata.bak'" -U geodata -P "07d8313e-75b1-45"
 docker cp sqlserver:/tmp/geodata.bak mssql/docker-entrypoint-initdb.d/geodata.backup.dump
 ```
@@ -194,7 +193,7 @@ The global WMS config is limited to EPSG:28992, EPSG:4326 and EPSG:3857 and crea
 WCS is turned off.
 
 You can rebuild and restart the geoserver container using
-`GEOSERVER_DATA_DIR=/opt/geoserver-data GEOSERVER_ADMIN_PASSWORD=geoserver123 GEOSERVER_CSRF_WHITELIST=localhost docker-compose up -dV --no-deps --build --force-recreate geoserver`
+`GEOSERVER_DATA_DIR=/opt/geoserver-data GEOSERVER_ADMIN_PASSWORD=geoserver123 GEOSERVER_CSRF_WHITELIST=localhost docker compose up -dV --no-deps --build --force-recreate geoserver`
 
 If you want to make changes to the image start the stack and then make those changes, copy the datadir from the
 container to a local directory using `docker cp geoserver:/opt/geoserver-data geoserver/maven/src/main/webapp/`.

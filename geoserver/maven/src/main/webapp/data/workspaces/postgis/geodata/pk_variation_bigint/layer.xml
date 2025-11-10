@@ -1,0 +1,16 @@
+<layer>
+  <name>pk_variation_bigint</name>
+  <id>LayerInfoImpl-69fa3e2e:19a6d8034f4:-7ff6</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--570ae188:124761b8d78:-7fdf</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-69fa3e2e:19a6d8034f4:-7ff7</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2025-11-10 13:02:14.648 UTC</dateCreated>
+</layer>
