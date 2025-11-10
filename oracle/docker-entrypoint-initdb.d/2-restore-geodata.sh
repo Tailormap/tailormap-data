@@ -10,4 +10,3 @@ printf 'Finished import dump at %(%T)T, exit code %d\n\n' -1 $?
 echo Logfile:
 
 cat /tmp/dumpdir/geodata.log
-
