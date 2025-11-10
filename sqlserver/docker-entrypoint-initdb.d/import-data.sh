@@ -19,5 +19,5 @@ echo "loading geodata"
 echo "done loading geodata"
 
 echo "creating pk_variation tables"
-/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -No -d master -i /docker-entrypoint-initdb.d/create_pk_variations.sql
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -No -d geodata -i /docker-entrypoint-initdb.d/5-create_pk_variations.sql
 echo "done creating pk_variation tables"
