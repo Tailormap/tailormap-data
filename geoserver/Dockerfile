@@ -5,7 +5,7 @@ COPY maven/ /tmp/
 
 RUN mvn -U clean package --fail-at-end --settings .mvn/settings.xml
 
-FROM tomcat:9.0.111-jre21-temurin AS geoserver
+FROM tomcat:9.0.112-jre21-temurin AS geoserver
 
 LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
       org.opencontainers.image.description="A GeoServer image for the Tailormap stack" \
