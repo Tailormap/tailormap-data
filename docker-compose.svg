@@ -282,7 +282,7 @@
 <polyline fill="none" stroke="black" points="0,-314.49 4,-314.49 4,-310.49 0,-310.49 "/>
 <polyline fill="none" stroke="black" points="0,-288.49 4,-288.49 4,-284.49 0,-284.49 "/>
 <text text-anchor="middle" x="77" y="-303.29" font-family="Times,serif" font-size="14.00">traefik&#45;tiles3d&#45;proxy</text>
-<text text-anchor="middle" x="77" y="-288.29" font-family="Times,serif" font-size="14.00">(traefik:3.6.4)</text>
+<text text-anchor="middle" x="77" y="-288.29" font-family="Times,serif" font-size="14.00">(traefik:3.6.5)</text>
 </g>
 <!-- tiles3d&#45;proxy&#45;&gt;traefik -->
 <g id="edge23" class="edge">
