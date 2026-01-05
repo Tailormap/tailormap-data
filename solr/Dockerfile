@@ -1,9 +1,10 @@
 FROM solr:9.10.0
 
-ARG SOLRVERSION=9.9.0
+ARG SOLRVERSION=9.10.0
 ARG JTSVERSION=1.20.0
 ENV TZ="Europe/Amsterdam"
 ENV LANG=en_US.utf8
+ENV SOLR_MODE="user-managed"
 
 LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
       org.opencontainers.image.description="A Spatially enabled Solr image for the Tailormap stack" \
