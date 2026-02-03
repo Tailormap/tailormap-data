@@ -1,0 +1,7 @@
+/* @title purple polygon */
+* {
+    stroke: #47248f;
+    stroke-width: 0.5;
+    fill: #9370db;
+    fill-opacity: 0.5;
+}
