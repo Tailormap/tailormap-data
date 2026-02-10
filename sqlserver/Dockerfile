@@ -17,9 +17,7 @@ COPY ./docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
     && sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && locale-gen "en_US.UTF-8" \
-# running apt upgrade is currently broken with: \
-#    *** microsoft-prod.gpg (Y/I/N/O/D/Z) [default=N] ? dpkg: error processing package packages-microsoft-prod (--configure): end of file on stdin at conffile prompt \
-    #    && apt update && apt upgrade -y  && apt autoremove -y && apt autoclean && apt clean \
+    && apt update -y && apt upgrade -y && apt autoremove -y && apt autoclean && apt clean \
     && rm -rf /tmp/* && rm -rf /var/tmp/* && rm -rf /var/lib/apt/lists/* \
     && chmod +r /docker-entrypoint-initdb.d/geodata.backup.dump
 
