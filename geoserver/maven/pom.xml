@@ -9,7 +9,7 @@
     <name>Tailormap Data Geoserver</name>
     <description>WAR-overlay project with custom GeoServer for Tailormap test and demo</description>
     <properties>
-        <geoserver.version>${project.version}</geoserver.version>
+        <geoserver.version>2.28.3</geoserver.version>
     </properties>
     <url>https://github.com/Tailormap/tailormap-data</url>
     <organization>
