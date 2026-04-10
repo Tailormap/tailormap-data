@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v6
+        with:
+          lfs: false
 
       - name: 'Renovate Config Validator'
         uses: suzuki-shunsuke/github-action-renovate-config-validator@v2.1.0
