@@ -21,10 +21,10 @@ jobs:
         with:
           lfs: false
 
-      - name: 'Trivy Cache'
-        uses: yogeshlonkar/trivy-cache-action@v0.1.17
-        with:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: 'Trivy Cache'
+      #   uses: yogeshlonkar/trivy-cache-action@v0.1.17
+      #   with:
+      #     gh-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Run Trivy vulnerability scanner in repo mode'
         uses: aquasecurity/trivy-action@0.35.0
@@ -38,7 +38,7 @@ jobs:
           scanners: 'vuln,secret'
           exit-code: '1'
           format: 'table'
-          cache-dir: .trivy
+          # cache-dir: .trivy
 
       - name: 'Run Trivy vulnerability scanner in IaC mode'
         uses: aquasecurity/trivy-action@0.35.0
@@ -52,5 +52,5 @@ jobs:
           skip-files: ''
           exit-code: '1'
           format: 'table'
-          cache-dir: .trivy
+          # cache-dir: .trivy
 
