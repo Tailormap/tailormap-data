@@ -185,7 +185,7 @@ docker cp sqlserver:/tmp/geodata.bak mssql/docker-entrypoint-initdb.d/geodata.ba
 
 ## GeoServer
 
-Geoserver comes preconfigured with three `geodata` datastores from the above databases (postgis/oracle/sqlserver) and
+GeoServer comes preconfigured with three `geodata` datastores from the above databases (postgis/oracle/sqlserver) and
 one
 `osm` datastore from postgis only. For each database there is a workspace (postgis/oracle/sqlserver) that has a few
 layers published.

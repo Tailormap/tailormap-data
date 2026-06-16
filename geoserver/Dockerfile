@@ -1,11 +1,11 @@
-FROM maven:3-eclipse-temurin-21-alpine AS builder
+FROM maven:3-eclipse-temurin-25-alpine AS builder
 # this will build a war overlay of GeoServer as defined in the pom.xml and then exit
 WORKDIR /tmp
 COPY maven/ /tmp/
 
 RUN mvn -U clean package --fail-at-end --settings .mvn/settings.xml
 
-FROM tomcat:9.0.118-jre21-temurin AS geoserver
+FROM tomcat:11.0.22-jdk25-temurin AS geoserver
 
 LABEL org.opencontainers.image.authors="Tailormap/core-developers" \
       org.opencontainers.image.description="A GeoServer image for the Tailormap stack" \
@@ -47,8 +47,9 @@ RUN set -eux;ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/t
     # local configuration directory \
     && mkdir -vp /usr/local/tomcat/conf/Catalina/localhost \
     && mkdir -vp /docker-entrypoint-initdb.d \
-    && apt update && apt upgrade -y && apt autoremove -y && apt autoclean && apt clean && rm -rf /tmp/* \
-    && rm -rf /var/tmp/* && rm -rf /var/lib/apt/lists/* \
+    && apt update && apt upgrade -y  && apt install curl -y \
+    && apt autoremove -y && apt autoclean && apt clean  \
+    && rm -rf /tmp/* && rm -rf /var/tmp/* && rm -rf /var/lib/apt/lists/* \
     && chown -R www-data:www-data /usr/local/tomcat/webapps \
     && chown -R www-data:www-data /usr/local/tomcat/conf/Catalina/localhost \
     && chown -R www-data:www-data $GEOSERVER_DATA_DIR
