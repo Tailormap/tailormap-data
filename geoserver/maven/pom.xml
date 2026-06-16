@@ -72,6 +72,11 @@
             <artifactId>gs-web-features</artifactId>
             <version>${geoserver.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-sec-oidc-web</artifactId>
+            <version>${geoserver.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>geoserver</finalName>
