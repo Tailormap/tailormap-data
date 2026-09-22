@@ -25,13 +25,13 @@ updates:
       timezone: Europe/Amsterdam
     labels:
       - dependency
-    ignore: # stay on Tomcat 9 and java 17 for now
+    ignore: # stay on Tomcat 11 and java 25 for now
       - dependency-name: "tomcat"
         versions:
-          - ">= 10"
+          - ">= 12"
       - dependency-name: "maven"
         versions:
-          - ">= 3-eclipse-temurin-21"
+          - ">= 3-eclipse-temurin-26"
 
 
   - package-ecosystem: "docker-compose"
