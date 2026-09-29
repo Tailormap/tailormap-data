@@ -21,4 +21,4 @@ jobs:
           lfs: false
 
       - name: 'Renovate Config Validator'
-        uses: suzuki-shunsuke/github-action-renovate-config-validator@v2.1.0
+        uses: suzuki-shunsuke/github-action-renovate-config-validator@v2.2.0
