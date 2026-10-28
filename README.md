@@ -127,6 +127,27 @@ osmium extract -b 4.9715,52.0907,5.1237,52.1558 /tmp/utrecht-latest.osm.pbf -o p
 
 ```
 
+#### Geometry variations
+
+The `postgis/docker-entrypoint-initdb.d/6-create_geometry_variations.sql` script creates a few small tables in the
+`public` schema, each with a different multi geometry type (EPSG:28992, within the BGT area):
+
+| table                            | geometry type     |
+|----------------------------------|-------------------|
+| `geom_variation_multipoint`      | `MULTIPOINT`      |
+| `geom_variation_multilinestring` | `MULTILINESTRING` |
+| `geom_variation_multipolygon`    | `MULTIPOLYGON`    |
+
+Each table has a few features, including one with a single part; one of the multipolygons has a hole.
+
+To add more test tables, add a numbered `*.sql` (or `*.sql.gz`) file to `postgis/docker-entrypoint-initdb.d/`.
+Init scripts only run on an empty volume, so recreate the volume to load them:
+
+```bash
+docker compose down -v postgis
+docker compose up -d --build --force-recreate postgis
+```
+
 ## Oracle
 
 You can connect to the Oracle `FREEPDB1` service in the `tailormap-data` network or on the `host`
