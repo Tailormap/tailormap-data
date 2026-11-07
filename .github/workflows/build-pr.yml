@@ -21,7 +21,7 @@ jobs:
           lfs: true
 
       - name: 'Build Solr image'
-        if: ${{ github.event.pull_request && contains(github.event.pull_request.changed_files, 'solr/') }}
+        if: ${{ github.event.pull_request && contains(github.event.pull_request.changed_files, 'solr') }}
         run: |
           SOLRVERSION=$(grep "FROM solr" -m1 solr/Dockerfile | cut -f2 -d":"| cut -f1 -d":")
           echo "Building Solr version $SOLRVERSION"
