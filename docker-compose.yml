@@ -137,6 +137,7 @@ services:
       args:
         GEOSERVER_DATA_DIR: ${GEOSERVER_DATA_DIR:-/opt/geoserver-data}
     environment:
+      JAVA_TOOL_OPTIONS: "-XX:-UseBASE64Intrinsics"
       GEOSERVER_DATA_DIR: ${GEOSERVER_DATA_DIR:-/opt/geoserver-data}
       GEOSERVER_NODE_OPTS: "id:Tailormap Data Geoserver;background:#6236ff;color:white"
       GEOSERVER_ADMIN_PASSWORD: ${GEOSERVER_ADMIN_PASSWORD:-geoserver}
